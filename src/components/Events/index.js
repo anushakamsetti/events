@@ -1,5 +1,9 @@
-import EventItem from "../EventItem"
-import ActiveEventRegistrationDetails from "../ActiveEventRegistrationDetails"
+import {Component} from 'react'
+
+import EventItem from '../EventItem'
+import ActiveEventRegistrationDetails from '../ActiveEventRegistrationDetails'
+
+import './index.css'
 
 const eventsList = [
   {
@@ -51,55 +55,55 @@ const eventsList = [
   },
 ]
 
-class Event extends Component {
-    state = {
-        activeEventId: '',
-    }
+class Events extends Component {
+  state = {
+    activeEventId: '',
+  }
 
-    getActiveEventRegistrationStatus = () => {
-        const (activeEventId) = this.state
-        const activeEventDetails = eventsList.find(
-            event => event.id === activeEventId, 
-        )
-        if (activeEventDetails) {
-            return activeEventDetails.registrationStatus
-        }
-        return ''
+  getActiveEventRegistrationStatus = () => {
+    const {activeEventId} = this.state
+    const activeEventDetails = eventsList.find(
+      event => event.id === activeEventId,
+    )
+    if (activeEventDetails) {
+      return activeEventDetails.registrationStatus
     }
+    return ''
+  }
 
-    setActiveEventId = id => {
-        this.setState({activeEventId: id})
-    }
+  setActiveEventId = id => {
+    this.setState({activeEventId: id})
+  }
 
-    renderEventList = () => {
-        const {activeEventId} = this.state
-        return (
-            <ul className="events-list">
-              {eventsList.map(eachEvent => (
-                  <EventItem 
-                   key={eachEvent}
-                   eventDetails={eachEvent}
-                   setActiveEventId={this.setActiveEventId}
-                   isActive={eachEvent.id === activeEventId}
-                   />
-              ))}
-            </ul>
-        )
-    }
+  renderEventList = () => {
+    const {activeEventId} = this.state
+    return (
+      <ul className="events-list">
+        {eventsList.map(eachEvent => (
+          <EventItem
+            key={eachEvent}
+            eventDetails={eachEvent}
+            setActiveEventId={this.setActiveEventId}
+            isActive={eachEvent.id === activeEventId}
+          />
+        ))}
+      </ul>
+    )
+  }
 
-    render() {
-        return (
-            <div className="events-contaier">
-              <div className="events-content">
-                <h1 className="heading">Events</h1>
-                {this.renderEventsList()}
-              </div>
-              <ActiveEventRegistrationDetails
-              activeEventRegistrationStatus={this.getActiveEventRegistrationStatus()}
-              />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="events-container">
+        <div className="events-content">
+          <h1 className="heading">Events</h1>
+          {this.renderEventsList()}
+        </div>
+        <ActiveEventRegistrationDetails
+          activeEventRegistrationStatus={this.getActiveEventRegistrationStatus()}
+        />
+      </div>
+    )
+  }
 }
 
-event default Event
+export default Events

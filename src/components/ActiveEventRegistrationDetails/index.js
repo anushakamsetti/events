@@ -11,7 +11,7 @@ const ActiveEventRegistrationDetails = props => {
 
   const renderNoActiveEventView = () => (
     <p className="no-active-event-description">
-      Click on an event, ti view its registration details
+      Click on an event, to view its registration details
     </p>
   )
 
@@ -38,7 +38,7 @@ const ActiveEventRegistrationDetails = props => {
         alt="registered"
         className="registered-img"
       />
-      <h1 className="registrations-heading">
+      <h1 className="registered-heading">
         You have already registered for the event
       </h1>
     </div>
@@ -49,7 +49,7 @@ const ActiveEventRegistrationDetails = props => {
       <img
         src="https://assets.ccbp.in/frontend/react-js/events-register-img.png"
         alt="yet to register"
-        className="yet-to-register-imag"
+        className="yet-to-register-image"
       />
       <p className="register-description">
         A live performance brings so much to your relationship with dance.
