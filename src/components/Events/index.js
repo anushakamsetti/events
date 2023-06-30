@@ -1,8 +1,7 @@
 import {Component} from 'react'
 
-import EventItem from '../EventItem'
 import ActiveEventRegistrationDetails from '../ActiveEventRegistrationDetails'
-
+import EventItem from '../EventItem'
 import './index.css'
 
 const eventsList = [
@@ -81,7 +80,7 @@ class Events extends Component {
       <ul className="events-list">
         {eventsList.map(eachEvent => (
           <EventItem
-            key={eachEvent}
+            key={eachEvent.id}
             eventDetails={eachEvent}
             setActiveEventId={this.setActiveEventId}
             isActive={eachEvent.id === activeEventId}

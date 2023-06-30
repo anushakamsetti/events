@@ -1,4 +1,4 @@
-import '/.index.css'
+import './index.css'
 
 const registrationStatus = {
   yetToRegister: 'YET_TO_REGISTER',
